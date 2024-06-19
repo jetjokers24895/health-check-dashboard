@@ -1,0 +1,18 @@
+{{template "partials/header" .}}
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" v-for="service in services">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{.Name}}</h5>
+          <p class="card-text">{{.Command}}</p>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary" @click="">Edit</button>
+          <button type="button" class="btn btn-danger" @click="">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{template "partials/footer" .}}
