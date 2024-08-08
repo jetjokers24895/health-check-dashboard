@@ -1,0 +1,16 @@
+.newServiceScreen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newServiceScreen .newServiceForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4vh;
+  width: 100%;
+  max-width: 600px;
+}
+
+/*# sourceMappingURL=index.css.map */

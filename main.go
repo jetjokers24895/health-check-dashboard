@@ -23,14 +23,17 @@ func main() {
 	})
 
 	cursor := db.ConnectDB()
+	_handlerApi := handlers.NewHandlerApi(cursor)
 	_handler := handlers.NewHandler(cursor)
 
 	app.Get("/", _handler.Home)
+	app.Get("/new-service", _handler.NewService)
+	app.Static("/static", "./views/static")
 
-	app.Post("/api/services", _handler.NewService)
-	app.Put("/api/services/:id", _handler.UpdateService)
-	app.Delete("/api/services/:id", _handler.DeleteService)
-	app.Get("/api/services", _handler.GetServices)
+	app.Post("/api/services", _handlerApi.NewService)
+	app.Put("/api/services/:id", _handlerApi.UpdateService)
+	app.Delete("/api/services/:id", _handlerApi.DeleteService)
+	app.Get("/api/services", _handlerApi.GetServices)
 
 	app.Get("/health-check", func(c *fiber.Ctx) error {
 		return c.JSON(dtos.Response{
