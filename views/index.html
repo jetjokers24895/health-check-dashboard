@@ -1,11 +1,19 @@
 {{template "partials/header" .}}
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" v-for="service in services">
-      <div class="card h-100">
+<div class="container homeScreen">
+  <div class="row row-cols-1 g-4">
+    {{range $service := .services}}
+    <div class="col">
+      <div class="card h-100 serviceElement">
+        <div class="card-header">
+          <h3 class="card-title">{{$service.Name}}</h3>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">{{.Name}}</h5>
-          <p class="card-text">{{.Command}}</p>
+          <p class="card-text" class="text-muted">
+            <span>Status</span>{{$service.Status}}</p>
+            <p class="card-text" class="text-muted">
+              <span>Last Checked</span>{{$service.LastCheckTime}}</p>
+          <p class="card-text" class="text-muted">
+            <span>Command:</span>{{$service.Command}}</p>
         </div>
         <div class="card-footer">
           <button type="button" class="btn btn-primary" @click="">Edit</button>
@@ -13,6 +21,7 @@
         </div>
       </div>
     </div>
+    {{end}}
   </div>
 </div>
 {{template "partials/footer" .}}

@@ -13,4 +13,11 @@
   max-width: 600px;
 }
 
+.homeScreen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -4,20 +4,22 @@
     <div class="col-12">
       <label for="basic-url" class="form-label">Service Name</label>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Service name" aria-label="service name" aria-describedby="basic-addon1">
+        <input type="text" id="newServiceName" class="form-control" 
+        placeholder="Service name" aria-label="service name" aria-describedby="name">
       </div>
     </div>
     <div class="col-12">
       <label for="basic-url" class="form-label">Command(curl)</label>
       <div class="input-group">
-        <textarea class="form-control" aria-label="Command(curl)"></textarea>
+        <textarea id="newServiceCommand" class="form-control" aria-label="Command(curl)"></textarea>
       </div>
       <div class="form-text" id="basic-addon4">This command will be executed to call the service, 
         Http status code of response must be 200</div>
     </div>
     <div class="col-12">
-      <button type="button" class="btn btn-primary">Add New</button>
+      <button type="button" id="newServiceBtn" class="btn btn-primary">Add New</button>
     </div>
   </div>
 </div>
+<script src="/static/js/createService.js"></script>
 {{template "partials/footer" .}}
