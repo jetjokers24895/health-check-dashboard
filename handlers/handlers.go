@@ -20,7 +20,7 @@ type Handler struct {
 
 func NewHandler(db *gorm.DB) *Handler {
 	return &Handler{
-		_service: services.NewServices(db),
+		_service: services.NewServices(db, nil),
 	}
 }
 

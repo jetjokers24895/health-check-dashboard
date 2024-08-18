@@ -5,7 +5,7 @@ import "gorm.io/gorm"
 type Services struct {
 	gorm.Model
 	Name          string
-	Command       string
+	URL           string
 	LastCheckTime int64
 	Status        int
 }

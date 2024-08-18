@@ -1,10 +1,10 @@
 
-const createService = ({name, command}) => {
+const createService = ({name, url}) => {
   fetch("/api/services", {
     method: "POST",
     body: JSON.stringify({
       name: name,
-      command: command,
+      url: url,
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8"
@@ -19,6 +19,6 @@ $("#newServiceBtn").on("click", function (e) {
   e.preventDefault();
   createService({
     name: $("#newServiceName").val(),
-    command: $("#newServiceCommand").val(),
+    url: $("#newServiceURL").val(),
   });
 });

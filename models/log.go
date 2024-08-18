@@ -8,6 +8,7 @@ type LogChecked struct {
 	ResponseTXT string
 	Status      int
 
-	ServicesID int
-	Services   Services
+	ServicesID   int
+	Services     Services
+	RuntimeError string
 }

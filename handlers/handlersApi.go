@@ -20,7 +20,7 @@ type HandlerApi struct {
 
 func NewHandlerApi(db *gorm.DB) *HandlerApi {
 	return &HandlerApi{
-		_service: services.NewServices(db),
+		_service: services.NewServices(db, services.NewCronJobManager()),
 	}
 }
 
@@ -34,10 +34,10 @@ func (h *HandlerApi) NewService(c *fiber.Ctx) error {
 		})
 	}
 
-	if input.Command == "" || input.Name == "" {
+	if input.URL == "" || input.Name == "" {
 		return c.JSON(dtos.Response{
 			Status:  http.StatusBadRequest,
-			Message: "Command or Name must be specified",
+			Message: "URL or Name must be specified",
 			Data:    nil,
 		})
 	}
